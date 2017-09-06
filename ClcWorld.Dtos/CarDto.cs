@@ -1,13 +1,11 @@
-﻿namespace ClcWorld.Entities.Entities
+﻿namespace ClcWorld.Dtos
 {
-    public class Car
+    public class CarDto
     {
         public int Id { get; set; }
         public string Registration { get; set; }
         public int FranchiseeId { get; set; }
         public int CarBrandId { get; set; }
         public int Kilometers { get; set; }
-        public virtual CarBrand CarBrand { get; set; }
-        public virtual Franchisee Franchisee { get; set; }
     }
 }

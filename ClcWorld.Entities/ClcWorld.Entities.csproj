@@ -49,18 +49,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbContext\ClcWorldContext.cs" />
-    <Compile Include="DbContext\IClcWorldContext.cs" />
+    <Compile Include="Context\ClcWorldContext.cs" />
+    <Compile Include="Context\IClcWorldContext.cs" />
     <Compile Include="Entities\Car.cs" />
     <Compile Include="Entities\Franchisee.cs" />
     <Compile Include="Entities\CarBrand.cs" />
+    <Compile Include="Entities\Mapping\CarBrandMap.cs" />
+    <Compile Include="Entities\Mapping\CarMap.cs" />
+    <Compile Include="Entities\Mapping\FranchiseeMap.cs" />
+    <Compile Include="Migrations\201709062106005_initial.cs" />
+    <Compile Include="Migrations\201709062106005_initial.Designer.cs">
+      <DependentUpon>201709062106005_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709062106005_initial.resx">
+      <DependentUpon>201709062106005_initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
