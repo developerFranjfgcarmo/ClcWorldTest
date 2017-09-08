@@ -6,7 +6,7 @@ namespace ClcWorld.Entities.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Address { get; set; }
+        public string AddressFranchisee { get; set; }
         public virtual ICollection<Car> Cars { get; set; }
     }
 }

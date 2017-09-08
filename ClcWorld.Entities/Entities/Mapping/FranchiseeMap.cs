@@ -7,7 +7,7 @@ namespace ClcWorld.Entities.Entities.Mapping
         public FranchiseeMap()
         {
             Property(p => p.Name).IsRequired().HasMaxLength(50);
-            Property(p => p.Address).HasMaxLength(100);
+            Property(p => p.AddressFranchisee).HasMaxLength(100);
         }
     }
 }

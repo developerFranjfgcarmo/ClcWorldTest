@@ -1,7 +1,17 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Data.Entity.Migrations;
+using System.Linq;
+using System.Threading.Tasks;
+using ClcWorld.Dtos;
+using ClcWorld.Dtos.Filters;
+using ClcWorld.Dtos.Models;
 using ClcWorld.Entities.Context;
 using ClcWorld.Entities.Entities;
+using ClcWorld.Service.Helpers;
 using ClcWorld.Service.IService;
+using ClcWorld.Service.Queries;
+using ClcWorld.Utils.Extensions;
+using Dapper;
 
 namespace ClcWorld.Service.Services
 {
@@ -11,19 +21,80 @@ namespace ClcWorld.Service.Services
         {
         }
 
-        public Task<Car> AddOrUpdateFranchisee(Car franchisee)
+        #region [Commands]    
+        
+        public async Task<CarDto> AddOrUpdateCar(Car car)
         {
-            throw new System.NotImplementedException();
+            if (car == null)
+            {
+                throw new ArgumentNullException(nameof(car));
+            }
+            ClcWorldContext.Cars.AddOrUpdate(car);
+            return await SaveAsync() ? car.ToMap<CarDto>() : null;
         }
 
-        public Task<Car> GetFranchiseeById(int id)
+        public async Task<CarDto> GetCarById(int id)
         {
-            throw new System.NotImplementedException();
+            return (await ClcWorldContext.Cars.FindAsync(id))?.ToMap<CarDto>();
+        }
+        #endregion
+
+        #region [Queries]
+
+        public async Task<bool> DeleteCarById(int id)
+        {
+            var car = new Car { Id = id };
+            ClcWorldContext.Cars.Attach(car);
+            ClcWorldContext.Cars.Remove(car);
+            return await SaveAsync();
         }
 
-        public Task<bool> DeleteFranchiseeById(int id)
+        public async Task<PagedCollection<CarDto>> GetAll(CarFilter carFilter)
         {
-            throw new System.NotImplementedException();
+            if (carFilter == null)
+            {
+                throw new ArgumentNullException(nameof(carFilter));
+            }
+
+            var whereClause = string.Empty;
+            var orderByClause = string.Empty;
+
+            if (!string.IsNullOrWhiteSpace(carFilter.Registration))
+            {
+                whereClause += whereClause.And(CarQuery.GetAllWhereRegistration);
+            }
+            if (carFilter.CarBrandId.HasValue)
+            {
+                whereClause += whereClause.And(CarQuery.GetAllWhereCarBrandId);
+            }
+
+            if (carFilter.FranchiseeId.HasValue)
+            {
+                whereClause += whereClause.And(CarQuery.GetAllWhereFranchiseeId);
+            }
+            if (carFilter.Kilometers.HasValue)
+            {
+                whereClause += whereClause.And(CarQuery.GetAllWhereKilometers);
+            }
+
+            if (string.IsNullOrWhiteSpace(carFilter.OrderBy))
+            {
+                orderByClause = "Id";
+            }
+            orderByClause += " " + carFilter.OrderDirection;
+
+            var sql = string.Format(FranchiseeQuery.GetAll, whereClause, orderByClause);
+            var result = new PagedCollection<CarDto>();
+            using (var reader = await ClcWorldContext.Database.Connection.QueryMultipleAsync(sql, carFilter))
+            {
+                result.Items = (await reader.ReadAsync<CarDto>()).ToList();
+                result.Total = (await reader.ReadAsync<long>()).FirstOrDefault();
+            }
+
+            return result; 
         }
+
+        #endregion
+        
     }
 }

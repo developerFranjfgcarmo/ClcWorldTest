@@ -1,4 +1,4 @@
-﻿namespace ClcWorld.Dtos
+﻿namespace ClcWorld.Dtos.Models
 {
     public class CarDto
     {

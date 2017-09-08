@@ -40,11 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CarDto.cs" />
-    <Compile Include="CarBrandDto.cs" />
-    <Compile Include="FranchiseeDto.cs" />
+    <Compile Include="Filters\CarFilter.cs" />
+    <Compile Include="Filters\FranchiseeFilter.cs" />
+    <Compile Include="Models\CarDto.cs" />
+    <Compile Include="Models\CarBrandDto.cs" />
+    <Compile Include="Filters\PageFilter.cs" />
+    <Compile Include="Models\FranchiseeDto.cs" />
+    <Compile Include="PagedCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
