@@ -13,7 +13,6 @@ namespace ClcWorld.WebApi.Helpers
     public class UnityHelpers
     {
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-        //private static readonly Type[] EmptyTypes = new Type[0];
 
         public static IEnumerable<Type> GetTypesWithCustomAttribute<T>(Assembly[] assemblies)
         {
@@ -26,22 +25,12 @@ namespace ClcWorld.WebApi.Helpers
         public static void RegisterTypes(IUnityContainer container)
         {
             Log.Info("Configure Unity register types.");
-
-            // AddOrUpdate your register logic here...
-            //var myAssemblies = AppDomain.CurrentDomain.GetAssemblies().Where(a => a.FullName.StartsWith("your_assembly_Name")).ToArray();
-
+            
             // Explicit types registration: container.RegisterType(typeof (Startup));
             container.RegisterType<IClcWorldContext, ClcWorldContext>(new HierarchicalLifetimeManager());
            
 
-            // Convention to resolve dependencies
-            //container.RegisterTypes(
-            //    AllClasses.FromAssemblies(typeof(Service.ServiceBase.Service).Assembly),
-            //    WithMappings.FromMatchingInterface,
-            //    WithName.Default,
-            //    WithLifetime.Custom<HierarchicalLifetimeManager>
-            //);
-
+            // Convention to resolve dependencies          
             container.RegisterTypes(
                 AllClasses.FromAssemblies(typeof(ICarService).Assembly),
                 WithMappings.FromMatchingInterface,

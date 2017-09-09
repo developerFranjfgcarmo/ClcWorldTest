@@ -170,9 +170,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AppConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Attributes\HandleErrorAttribute.cs" />
     <Compile Include="Controllers\Car\CarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -196,6 +198,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClcWorld.Config\ClcWorld.Config.csproj">
+      <Project>{6D86F605-49AF-4306-8E3F-1DD03E1E0024}</Project>
+      <Name>ClcWorld.Config</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClcWorld.Entities\ClcWorld.Entities.csproj">
       <Project>{6584AF02-5842-4E61-8132-A5B312059DBF}</Project>
       <Name>ClcWorld.Entities</Name>
@@ -203,6 +209,10 @@
     <ProjectReference Include="..\ClcWorld.Service\ClcWorld.Service.csproj">
       <Project>{F064B83B-921E-403F-A500-B1C6933427CF}</Project>
       <Name>ClcWorld.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClcWorld.Utils\ClcWorld.Utils.csproj">
+      <Project>{1B6E8752-75AB-4679-A5A6-74657F7817F9}</Project>
+      <Name>ClcWorld.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

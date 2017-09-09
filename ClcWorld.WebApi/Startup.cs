@@ -1,9 +1,5 @@
-﻿using System;
-using System.Reflection;
-using System.Threading.Tasks;
-using System.Web.Hosting;
+﻿using System.Reflection;
 using System.Web.Http;
-using System.Web.Routing;
 using ClcWorld.WebApi.Helpers;
 using log4net;
 using Microsoft.Owin;
@@ -19,14 +15,9 @@ namespace ClcWorld.WebApi
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         public void Configuration(IAppBuilder app)
         {
-            // Get app version.
-         //   ApplicationVersion.Configure(HostingEnvironment.MapPath("~/"), "holafibra_webapi_version");
+           Log.Info("Starting ClcWorld Web API");
 
-           // Log.Info($"Starting Holafibra Web API v{ApplicationVersion.Version.FullDescription} in {(Config.Config.GetWebPageConfig(HostingEnvironment.MapPath("~/bin")).EsProduccion ? "Production" : "Develop")} environment.");
-
-            //AppConfig.Configure();
-
-          //  WebApiConfig.Register(RouteTable.Routes);
+            AppConfig.Configure();
 
            // AutoMappingConfig.Configuration();
             var config = new HttpConfiguration
@@ -38,7 +29,6 @@ namespace ClcWorld.WebApi
             WebApiConfig.Register(config);
            // SwaggerConfig.Register(config);
 
-           // ConfigureAuth(app);
             app.UseWebApi(config);
         }
     }

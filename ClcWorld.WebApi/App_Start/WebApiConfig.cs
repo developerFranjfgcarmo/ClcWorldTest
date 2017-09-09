@@ -4,6 +4,7 @@ using System.Net.Http.Formatting;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using ClcWorld.WebApi.Attributes;
 using log4net;
 using Microsoft.AspNet.WebApi.Extensions.Compression.Server;
 using Newtonsoft.Json.Serialization;
@@ -22,7 +23,7 @@ namespace ClcWorld.WebApi
             config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             // Configuration de handleErrorWepApi
-        //    config.Filters.Add(new HandleErrorWebApiAttribute());
+            config.Filters.Add(new HandleErrorAttribute());
 
             // Configure Fluent Validator
             //config.Filters.Add(new ValidateModelStateWebApiAttribute());
