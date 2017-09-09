@@ -19,7 +19,7 @@ namespace ClcWorld.WebApi
 
             AppConfig.Configure();
 
-           // AutoMappingConfig.Configuration();
+            AutoMappingConfig.Configuration();
             var config = new HttpConfiguration
             {
                 // Configuración de Unity
