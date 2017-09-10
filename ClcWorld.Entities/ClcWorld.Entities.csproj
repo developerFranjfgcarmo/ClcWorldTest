@@ -56,11 +56,12 @@
     <Compile Include="Entities\Mapping\CarBrandMap.cs" />
     <Compile Include="Entities\Mapping\CarMap.cs" />
     <Compile Include="Entities\Mapping\FranchiseeMap.cs" />
-    <Compile Include="Migrations\201709062106005_initial.cs" />
-    <Compile Include="Migrations\201709062106005_initial.Designer.cs">
-      <DependentUpon>201709062106005_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201709101121525_initial.cs" />
+    <Compile Include="Migrations\201709101121525_initial.Designer.cs">
+      <DependentUpon>201709101121525_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Seed\CarBrandSeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,8 +69,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709062106005_initial.resx">
-      <DependentUpon>201709062106005_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709101121525_initial.resx">
+      <DependentUpon>201709101121525_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

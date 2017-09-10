@@ -11,5 +11,6 @@ namespace ClcWorld.WebApi.Controllers.Car.ViewModels
         public int FranchiseeId { get; set; }
         public int CarBrandId { get; set; }
         public int Kilometers { get; set; }
+        public string Model { get; set; }
     }
 }

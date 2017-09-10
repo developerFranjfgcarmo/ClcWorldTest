@@ -1,6 +1,8 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using ClcWorld.Entities.Entities;
+using ClcWorld.Entities.Entities.Mapping;
+
 //https://www.exceptionnotfound.net/entity-change-tracking-using-dbcontext-in-entity-framework-6/
 namespace ClcWorld.Entities.Context
 {
@@ -49,6 +51,18 @@ namespace ClcWorld.Entities.Context
         }
         #endregion
 
+        #region [Override]
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new CarMap());
+            modelBuilder.Configurations.Add(new CarBrandMap());
+            modelBuilder.Configurations.Add(new FranchiseeMap());
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+        #endregion
         #region [Entities]
         public DbSet<Car> Cars { get; set; }
         public DbSet<CarBrand> CarBrands { get; set; }

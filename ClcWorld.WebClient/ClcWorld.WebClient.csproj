@@ -54,7 +54,19 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Car\Controllers\carController.js" />
+    <Content Include="App\Car\Services\carService.js" />
     <Content Include="App\ClcWorldApp.js" />
+    <Content Include="App\ClcWorldConfig.js" />
+    <Content Include="App\Common\Directives\Forms\checkFieldHtml.html" />
+    <Content Include="App\Common\Directives\Forms\dateFieldHtml.html" />
+    <Content Include="App\Common\Directives\Forms\formField.js" />
+    <Content Include="App\Common\Directives\Forms\inputFieldHtml.html" />
+    <Content Include="App\Common\Directives\Forms\multiSelectFieldHtml.html" />
+    <Content Include="App\Common\Directives\Forms\selectFieldHtml.html" />
+    <Content Include="App\Common\Directives\Forms\textareaFieldHtml.html" />
+    <Content Include="App\Common\Directives\Pagination\pagination.html" />
+    <Content Include="App\Common\Directives\Pagination\pagination.js" />
     <Content Include="App\Home\Controllers\homeController.js" />
     <Content Include="App\Home\home.html" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -878,13 +890,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\Car\Controllers\" />
     <Folder Include="App\Car\Modals\" />
-    <Folder Include="App\Car\Services\" />
     <Folder Include="App\Franchisee\Controllers\" />
     <Folder Include="App\Franchisee\Modals\" />
     <Folder Include="App\Franchisee\Services\" />
-    <Folder Include="App\Home\Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

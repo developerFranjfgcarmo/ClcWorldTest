@@ -1,4 +1,6 @@
-﻿using System.Data.Entity.ModelConfiguration;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration;
 
 namespace ClcWorld.Entities.Entities.Mapping
 {
@@ -6,6 +8,7 @@ namespace ClcWorld.Entities.Entities.Mapping
     {
         public CarBrandMap()
         {
+            Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
             Property(p => p.Name).IsRequired().HasMaxLength(50);
         }
     }

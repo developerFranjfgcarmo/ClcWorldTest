@@ -17,8 +17,9 @@
 <!--
 <toaster-container toaster-options="{'time-out': 3000, 'position-class': 'toast-top-full-width'}"></toaster-container>
 -->
+    <!--Limpiado de librerias.-->
     <div ui-view></div>
-
+    
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <!--Angularjs and Extensions-->
@@ -33,11 +34,17 @@
     <!--Angular loading-->
     <!--Angular Aplication Utilities-->
     <!--Angular App-->
+    <script src="App/ClcWorldConfig.js"></script>
     <script src="App/ClcWorldApp.js"></script>
     <!--Angular Services-->
+    <script src="App/Car/Services/carService.js"></script>
     <!--Angular Controllers-->
     <script src="App/Home/Controllers/homeController.js"></script>
+    <script src="App/Car/Controllers/carController.js"></script>
     <!--Angular Filter-->
     <!--Angular Directives-->
+    <script src="App/Common/Directives/Pagination/pagination.js"></script>
+    <script src="App/Common/Directives/Forms/formField.js"></script>
+
 </body>
 </html>

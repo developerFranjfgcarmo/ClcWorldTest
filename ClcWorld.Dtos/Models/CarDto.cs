@@ -7,5 +7,8 @@
         public int FranchiseeId { get; set; }
         public int CarBrandId { get; set; }
         public int Kilometers { get; set; }
+        public string Model { get; set; }
+        public string NameFranchisee { get; set; }
+        public string NameCarBrand { get; set; }
     }
 }

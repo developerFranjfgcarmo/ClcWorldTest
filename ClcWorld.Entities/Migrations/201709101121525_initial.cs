@@ -1,6 +1,8 @@
 namespace ClcWorld.Entities.Migrations
 {
     using System;
+    using System.Collections.Generic;
+    using System.Data.Entity.Infrastructure.Annotations;
     using System.Data.Entity.Migrations;
     
     public partial class initial : DbMigration
@@ -11,8 +13,8 @@ namespace ClcWorld.Entities.Migrations
                 "dbo.CarBrands",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        Id = c.Int(nullable: false),
+                        Name = c.String(nullable: false, maxLength: 50),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -21,7 +23,15 @@ namespace ClcWorld.Entities.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Registration = c.String(),
+                        Registration = c.String(maxLength: 10,
+                            annotations: new Dictionary<string, AnnotationValues>
+                            {
+                                { 
+                                    "IndexRegistration",
+                                    new AnnotationValues(oldValue: null, newValue: "IndexAnnotation: { Name: IX_Registration, IsUnique: True }")
+                                },
+                            }),
+                        Model = c.String(nullable: false, maxLength: 80),
                         FranchiseeId = c.Int(nullable: false),
                         CarBrandId = c.Int(nullable: false),
                         Kilometers = c.Int(nullable: false),
@@ -37,8 +47,8 @@ namespace ClcWorld.Entities.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Address = c.String(),
+                        Name = c.String(nullable: false, maxLength: 50),
+                        AddressFranchisee = c.String(maxLength: 100),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -51,7 +61,17 @@ namespace ClcWorld.Entities.Migrations
             DropIndex("dbo.Cars", new[] { "CarBrandId" });
             DropIndex("dbo.Cars", new[] { "FranchiseeId" });
             DropTable("dbo.Franchisees");
-            DropTable("dbo.Cars");
+            DropTable("dbo.Cars",
+                removedColumnAnnotations: new Dictionary<string, IDictionary<string, object>>
+                {
+                    {
+                        "Registration",
+                        new Dictionary<string, object>
+                        {
+                            { "IndexRegistration", "IndexAnnotation: { Name: IX_Registration, IsUnique: True }" },
+                        }
+                    },
+                });
             DropTable("dbo.CarBrands");
         }
     }

@@ -83,7 +83,7 @@ namespace ClcWorld.Service.Services
             }
             orderByClause += " " + carFilter.OrderDirection;
 
-            var sql = string.Format(FranchiseeQuery.GetAll, whereClause, orderByClause);
+            var sql = string.Format(CarQuery.GetAll, whereClause, orderByClause);
             var result = new PagedCollection<CarDto>();
             using (var reader = await ClcWorldContext.Database.Connection.QueryMultipleAsync(sql, carFilter))
             {

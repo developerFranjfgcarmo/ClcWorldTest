@@ -13,7 +13,7 @@ namespace ClcWorld.Entities.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201709062106005_initial"; }
+            get { return "201709101121525_initial"; }
         }
         
         string IMigrationMetadata.Source

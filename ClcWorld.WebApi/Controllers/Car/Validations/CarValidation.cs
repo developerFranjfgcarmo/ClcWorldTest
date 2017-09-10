@@ -15,6 +15,11 @@ namespace ClcWorld.WebApi.Controllers.Car.Validations
                 .NotEmpty().WithMessage("La matrícula es obligatorioa")
                 .Length(1, 10)
                 .WithMessage("La longuitud máxima de la matrícula son 10 caracteres");
+            RuleFor(r => r.Model)
+                .NotEmpty()
+                .WithMessage("El campo modelo es obligatorio")
+                .Length(1, 80)
+                .WithMessage("La longuitud máxima del campo modelo son 80 caracteres");
         }
     }
 }
