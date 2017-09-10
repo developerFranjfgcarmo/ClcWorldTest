@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using ClcWorld.Entities.Entities;
-
+//https://www.exceptionnotfound.net/entity-change-tracking-using-dbcontext-in-entity-framework-6/
 namespace ClcWorld.Entities.Context
 {
     public class ClcWorldContext : DbContext, IClcWorldContext

@@ -64,10 +64,7 @@ namespace ClcWorld.WebApi.Handlers
                             deserializedErrorObject.ModelState.Select(kvp => string.Join(". ", kvp.Value));
 
                         var stateValues = modelStateValues as IList<string> ?? modelStateValues.ToList();
-                        for (var i = 0; i < stateValues.Count; i++)
-                        {
-                            modelStateErrors.Add(stateValues.ElementAt(i));
-                        }
+                        modelStateErrors.AddRange(stateValues.Select((t, i) => (string) stateValues.ElementAt(i)));
                     }
                 }
             }
