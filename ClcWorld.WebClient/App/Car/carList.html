@@ -1,0 +1,37 @@
+﻿<h2>Listado de Coches</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">Coches</div>
+    <div class="panel-body">
+        <!-- search bar -->
+        <!--List-->
+        <div class="table-responsive">
+            <table class="table table-hover ">
+                <thead>
+                    <tr>
+                        <th ng-repeat="attribute in carCtrl.attributes">
+                            <span ng-bind="::attribute.displayName"></span>
+                            <!--<i class="fa fa-fw fa-sort"></i>-->
+                        </th>
+                    </tr>
+                    <tr>
+                     <!--Filter-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="car in carCtrl.cars">                             
+                        <td ng-bind="::car.name"></td>
+                        <td ng-bind="::car.registration"></td>
+                        <td ng-bind="::car.model"></td>
+                        <td ng-bind="::car.kilometers"></td>
+                        <td ng-bind="::car.nameFranchisee"></td>
+                        <td ng-bind="::car.nameCarBrand"></td>
+                        <td>
+                           <!--Accion-->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+            <clc-pagination num-of-pages="carCtrl.numOfPages" filter="carCtrl.filter" total="{{carCtrl.total}}" get-all="carCtrl.getAll()"></clc-pagination>
+        </div>
+</div>

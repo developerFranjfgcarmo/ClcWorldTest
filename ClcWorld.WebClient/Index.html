@@ -14,12 +14,17 @@
 
 </head>
 <body>
-<!--
-<toaster-container toaster-options="{'time-out': 3000, 'position-class': 'toast-top-full-width'}"></toaster-container>
--->
+    <!--
+    <toaster-container toaster-options="{'time-out': 3000, 'position-class': 'toast-top-full-width'}"></toaster-container>
+    -->
     <!--Limpiado de librerias.-->
-    <div ui-view></div>
-    
+    <header class="navbar " style="background-color:#E74C3C; border-radius: 0;"></header>
+
+    <div class="container-fluid">
+        <div class="container">
+            <div ui-view></div>
+        </div>
+    </div>
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <!--Angularjs and Extensions-->

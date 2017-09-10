@@ -9,6 +9,6 @@ namespace ClcWorld.Dtos
     public class PagedCollection<TDto>
     {
         public List<TDto> Items { get; set; }
-        public long Total { get; set; }
+        public int Total { get; set; }
     }
 }

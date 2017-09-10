@@ -31,7 +31,7 @@ namespace ClcWorld.Service.Services
             }
 
             var whereClause = string.Empty;
-            var orderByClause = string.Empty;
+            var orderByClause = "Order by ";
             if (!string.IsNullOrWhiteSpace(franchiseeFilter.AddressFranchisee))
             {
                 whereClause += whereClause.And(FranchiseeQuery.GetAllWhereAddressFranchisee);
@@ -43,7 +43,7 @@ namespace ClcWorld.Service.Services
 
             if (string.IsNullOrWhiteSpace(franchiseeFilter.OrderBy))
             {
-                orderByClause = "Id" ;
+                orderByClause += "Id" ;
             }
             orderByClause += " " + franchiseeFilter.OrderDirection;
 
@@ -52,7 +52,7 @@ namespace ClcWorld.Service.Services
             using (var reader = await ClcWorldContext.Database.Connection.QueryMultipleAsync(sql, franchiseeFilter))
             {
                 result.Items = (await reader.ReadAsync<FranchiseeDto>()).ToList();
-                result.Total = (await reader.ReadAsync<long>()).FirstOrDefault();
+                result.Total = (await reader.ReadAsync<int>()).FirstOrDefault();
             }
 
             return result;

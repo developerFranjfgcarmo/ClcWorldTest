@@ -57,7 +57,7 @@ namespace ClcWorld.Service.Services
             }
 
             var whereClause = string.Empty;
-            var orderByClause = string.Empty;
+            var orderByClause = "Order by ";
 
             if (!string.IsNullOrWhiteSpace(carFilter.Registration))
             {
@@ -79,7 +79,7 @@ namespace ClcWorld.Service.Services
 
             if (string.IsNullOrWhiteSpace(carFilter.OrderBy))
             {
-                orderByClause = "Id";
+                orderByClause += "Id";
             }
             orderByClause += " " + carFilter.OrderDirection;
 
@@ -88,7 +88,7 @@ namespace ClcWorld.Service.Services
             using (var reader = await ClcWorldContext.Database.Connection.QueryMultipleAsync(sql, carFilter))
             {
                 result.Items = (await reader.ReadAsync<CarDto>()).ToList();
-                result.Total = (await reader.ReadAsync<long>()).FirstOrDefault();
+                result.Total = (await reader.ReadAsync<int>()).FirstOrDefault();
             }
 
             return result; 

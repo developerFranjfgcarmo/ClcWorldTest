@@ -8,12 +8,12 @@
                                               ,c.CarBrandId
                                               ,c.Kilometers
                                               ,c.Model
-                                              ,cb.NameCarBrand
-                                              ,f.NameFranchisee
+                                              ,cb.Name AS NameCarBrand
+                                              ,f.Name AS NameFranchisee
                                       FROM CarBrands cb INNER JOIN Cars c ON cb.Id = c.CarBrandId
                                             INNER JOIN Franchisees f ON f.Id = c.FranchiseeId
-                                        {0} //Where
-                                        {1} //Order
+                                        {0} --Where
+                                        {1} --Order
                                         OFFSET @take * (@page - 1) ROWS FETCH NEXT @take ROWS ONLY;
                                         SELECT Count(*) AS Total FROM Cars {0};
                                         ";

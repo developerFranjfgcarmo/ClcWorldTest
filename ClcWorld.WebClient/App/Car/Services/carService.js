@@ -11,29 +11,29 @@
 
         function getAll(filter) {
             var deferred = $q.defer();
-
             $http({
                 method: "GET",
                 url: clcw.apiService + "api/v1/cars",
                 params: filter
-            }).success(function (data) {
-                deferred.resolve(data.result);
-            }).error(function (data) {
-                deferred.reject(data.validationErrors);
+            }).then(function (response) {
+                deferred.resolve(response.data.result);
+            }, function (response) {
+                deferred.reject(response.data.validationErrors);
             });
 
             return deferred.promise;
         }
+
 
         function get(id) {
             var deferred = $q.defer();
             $http({
                 method: "GET",
                 url: clcw.apiService + "api/v1/cars" + id
-            }).success(function (data) {
-                deferred.resolve(data.result);
-            }).error(function (data) {
-                deferred.reject(data.validationErrors);
+            }).then(function (response) {
+                deferred.resolve(response.data.result);
+            }, function (response) {
+                deferred.reject(response.data.validationErrors);
             });
         }
 
@@ -43,10 +43,10 @@
                 method: "POST",
                 url: clcw.apiService + "api/v1/cars",
                 data: car
-            }).success(function (data) {
-                deferred.resolve(data.result);
-            }).error(function (data) {
-                deferred.reject(data.validationErrors);
+            }).then(function (response) {
+                deferred.resolve(response.data.result);
+            }, function (response) {
+                deferred.reject(response.data.validationErrors);
             });
         }
 
@@ -56,10 +56,10 @@
                 method: "PUT",
                 url: clcw.apiService + "api/v1/cars",
                 data: car
-            }).success(function (data) {
-                deferred.resolve(data.result);
-            }).error(function (data) {
-                deferred.reject(data.validationErrors);
+            }).then(function (response) {
+                deferred.resolve(response.data.result);
+            }, function (response) {
+                deferred.reject(response.data.validationErrors);
             });
         }
 
@@ -68,11 +68,11 @@
 
             $http({
                 method: "DELETE",
-                url: hf.config.serviceBase + "api/v1/car/" + id
-            }).success(function (data) {
-                deferred.resolve(data.result);
-            }).error(function (data) {
-                deferred.reject(data.validationErrors);
+                url: clcw.apiService + "api/v1/car/" + id
+            }).then(function (response) {
+                deferred.resolve(response.data.result);
+            }, function (response) {
+                deferred.reject(response.data.validationErrors);
             });
 
             return deferred.promise;

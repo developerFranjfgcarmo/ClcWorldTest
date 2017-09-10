@@ -2,8 +2,7 @@
 {
     public class PageFilter
     {
-        public int Take { get; set; }
-        private int _skip;
+        public int Take { get; set; }   
 
         /// <summary>
         /// Number of Page
@@ -11,13 +10,7 @@
         public int Page
         {
             get
-            {
-                return _skip * Take;
-            }
-            set {
-                _skip = value < 0 ? 0 : value;
-            }
-        }
+            ; set; }
 
         /// <summary>
         /// Name of the column to order by.

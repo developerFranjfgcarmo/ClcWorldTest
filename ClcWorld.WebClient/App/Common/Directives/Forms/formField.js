@@ -47,9 +47,9 @@
 
         link: function (scope, element, attrs, formCtrl) {
             var inputEl = element[0].querySelector("[name]");
-            // convierte el texbox a un elemento de angular
+            // convert an input into element´s angular
             var inputNgEl = angular.element(inputEl);
-            // nombre de la propiedad a check
+            // property name
             var inputName = scope.name;
             formCtrl.$setPristine = function () {
                 $('form[name="' + formCtrl.$name + '"]').find("div.form-group").removeClass("has-error");
