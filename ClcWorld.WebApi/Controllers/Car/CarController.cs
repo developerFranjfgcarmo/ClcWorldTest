@@ -1,35 +1,99 @@
 ﻿using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Description;
+using ClcWorld.Dtos;
+using ClcWorld.Dtos.Filters;
+using ClcWorld.Dtos.Models;
+using ClcWorld.Service.IService;
+using ClcWorld.Utils.Extensions;
+using ClcWorld.WebApi.Controllers.Car.ViewModels;
 
 namespace ClcWorld.WebApi.Controllers.Car
 {
+  //todo:repasar http codes
+  [RoutePrefix("api/v1")]
     public class CarController : ApiController
     {
-        // GET: api/Car
-        public IEnumerable<string> Get()
+        private readonly ICarService _carService;
+
+        public CarController(ICarService carService)
         {
-            return new string[] { "value1", "value2" };
+            _carService = carService;
+        }
+
+        [HttpGet]
+        [Route("Cars")]
+        [ResponseType(typeof(PagedCollection<CarDto>))]
+        public async Task<IHttpActionResult> Get([FromUri]CarFilter carFilter)
+        {
+            if (carFilter == null)
+            {
+                return NotFound();
+            }
+            var result = await _carService.GetAll(carFilter);
+
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
         }
 
         // GET: api/Car/5
-        public string Get(int id)
+        [HttpGet]
+        [Route("Cars/{id:int}")]
+        [ResponseType(typeof(CarDto))]
+        public async Task<IHttpActionResult> Get(int id)
         {
-            return "value";
+            var result = await _carService.GetCarById(id);
+            return result != null ? (IHttpActionResult) Ok(result) : NotFound();
         }
 
         // POST: api/Car
-        public void Post([FromBody]string value)
+        [HttpPost]
+        [Route("Cars")]
+        [ResponseType(typeof(CarDto))]
+        public async Task<IHttpActionResult> Post([FromBody]CarViewModel car)
         {
+            var result = await _carService.AddOrUpdateCar(car.ToMap<Entities.Entities.Car>());
+            if (result != null)
+            {
+                return Created(Request.RequestUri + result.Id.ToString(), result);
+            }
+            return Conflict();
         }
 
         // PUT: api/Car/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPut]
+        [Route("Cars")]
+        [ResponseType(typeof(CarDto))]
+        public async Task<IHttpActionResult> Put(int id, [FromBody]CarViewModel car)
         {
+            var currentCar = await _carService.GetCarById(id);
+            if (currentCar == null)
+            {
+                return NotFound();
+            }
+
+            var result = await _carService.AddOrUpdateCar(car.ToMap<Entities.Entities.Car>());
+            if (result != null)
+            {
+                return Ok(result);
+            }
+            return Content(HttpStatusCode.NoContent,car);
         }
 
         // DELETE: api/Car/5
-        public void Delete(int id)
+        [HttpDelete]
+        [Route("Cars")]
+        public async Task<HttpResponseMessage> Delete(int id)
         {
+            var result = await _carService.DeleteCarById(id);
+            return result ?   Request.CreateResponse(HttpStatusCode.NoContent)
+                : Request.CreateResponse(HttpStatusCode.NotFound);
         }
     }
 }

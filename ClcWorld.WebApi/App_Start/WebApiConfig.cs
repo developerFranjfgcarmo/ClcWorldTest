@@ -51,7 +51,7 @@ namespace ClcWorld.WebApi
 
             config.Routes.MapHttpRoute(
                 "DefaultApi",
-                "api/{controller}/{id}",
+                "api/v1/{controller}/{id}",
                 new {id = RouteParameter.Optional}
             );
         }

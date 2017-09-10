@@ -8,7 +8,7 @@ namespace ClcWorld.Entities.Entities.Mapping
     {
         public CarMap()
         {
-            Property(p => p.Registration).HasMaxLength(8).HasColumnAnnotation("IndexRegistration",
+            Property(p => p.Registration).HasMaxLength(10).HasColumnAnnotation("IndexRegistration",
                 new IndexAnnotation(new IndexAttribute("IX_Registration") {IsUnique = true}));
         }
     }
