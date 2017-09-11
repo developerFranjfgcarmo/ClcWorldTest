@@ -1,18 +1,18 @@
 # ClcWorldTest
 
 ## Backend con WebApi
-### **Estructura:**
-ClcWorld.WebApi
-**Attributes** __
-HandleErrorAttribute. Captura todas las excepciones generadas durante la ejecución de la aplicación. __
-ValidateModelStateWebApiAttribute. Permite sobreescribir todas las respuesta cuando se producen errores de validación. __
-**Controller** __
-Los controladores están organizador por carpetas y contienen: los ViewModels, validaciones (FluentValidation) y los controladores. __
-**Handlers** __
-ResponseWrappingHandler. Se encarga de procesar todoas las peticiones y devolver los errores de validación. __
-**Helpers** __
-UnityHelpers. Configuración del Ioc. __
-**Mapping.** __
+### **Estructura:**  
+ClcWorld.WebApi  
+**Attributes**  
+HandleErrorAttribute. Captura todas las excepciones generadas durante la ejecución de la aplicación.  
+ValidateModelStateWebApiAttribute. Permite sobreescribir todas las respuesta cuando se producen errores de validación.  
+**Controller**  
+Los controladores están organizador por carpetas y contienen: los ViewModels, validaciones (FluentValidation) y los controladores.  
+**Handlers**  
+ResponseWrappingHandler. Se encarga de procesar todoas las peticiones y devolver los errores de validación.  
+**Helpers**  
+UnityHelpers. Configuración del Ioc.  
+**Mapping.**  
 
 ### Paquete Nuget:
 - **FluentValidation**. Lo utilizo para validaciones de servidor. Para automatizar las validaciones, se ha creado un Handler que procesa todas las peticiones y realiza las validaciones.
