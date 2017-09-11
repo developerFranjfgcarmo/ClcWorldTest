@@ -16,5 +16,6 @@ namespace ClcWorld.Entities.Context
         DbSet<Car> Cars { get; set; }
         DbSet<CarBrand> CarBrands { get; set; }
         DbSet<Franchisee> Franchisees { get; set; }
+        DbSet<Audit> Audits { get; set; }
     }
 }
