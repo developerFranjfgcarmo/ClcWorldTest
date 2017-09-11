@@ -11,6 +11,7 @@ namespace ClcWorld.WebApi
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         protected void Application_Start()
         {
+            Log.Error("Application_Start.");
             //Configure Log4net.
             XmlConfigurator.Configure();
         }

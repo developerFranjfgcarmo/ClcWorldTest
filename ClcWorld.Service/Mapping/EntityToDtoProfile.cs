@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using ClcWorld.Dtos.Models;
+using ClcWorld.Entities.Entities;
 
 namespace ClcWorld.Service.Mapping
 {
@@ -8,6 +10,8 @@ namespace ClcWorld.Service.Mapping
 
         public EntityToDtoProfile()
         {
+            CreateMap<Car, CarDto>();
+            CreateMap<Franchisee, FranchiseeDto>();
         }
     }
 }

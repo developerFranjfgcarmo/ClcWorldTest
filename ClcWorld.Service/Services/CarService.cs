@@ -32,21 +32,20 @@ namespace ClcWorld.Service.Services
             ClcWorldContext.Cars.AddOrUpdate(car);
             return await SaveAsync() ? car.ToMap<CarDto>() : null;
         }
-
-        public async Task<CarDto> GetCarById(int id)
-        {
-            return (await ClcWorldContext.Cars.FindAsync(id))?.ToMap<CarDto>();
-        }
-        #endregion
-
-        #region [Queries]
-
+       
         public async Task<bool> DeleteCarById(int id)
         {
             var car = new Car { Id = id };
             ClcWorldContext.Cars.Attach(car);
             ClcWorldContext.Cars.Remove(car);
             return await SaveAsync();
+        }
+        #endregion
+
+        #region [Queries]      
+        public async Task<CarDto> GetCarById(int id)
+        {
+            return (await ClcWorldContext.Cars.FindAsync(id))?.ToMap<CarDto>();
         }
 
         public async Task<PagedCollection<CarDto>> GetAll(CarFilter carFilter)

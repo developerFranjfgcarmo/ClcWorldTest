@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using ClcWorld.Entities.Entities;
+using ClcWorld.WebApi.Controllers.Car.ViewModels;
+using ClcWorld.WebApi.Controllers.Franchisee.ViewModels;
 
 namespace ClcWorld.WebApi.Mapping
 {
@@ -7,7 +10,8 @@ namespace ClcWorld.WebApi.Mapping
         public override string ProfileName => "ViewModelToEntity";
         public ViewModelToEntityProfile()
         {
-            //CreateMap<Car>()
+            CreateMap<CarViewModel, Car>();
+            CreateMap<FranchiseeViewModel, Franchisee>();
         }
     }
 }
