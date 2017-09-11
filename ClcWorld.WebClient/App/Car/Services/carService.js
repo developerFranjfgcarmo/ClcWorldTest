@@ -13,7 +13,7 @@
             var deferred = $q.defer();
             $http({
                 method: "GET",
-                url: clcw.apiService + carUrl,
+                url: clcw.apiService + clcw.carUrl,
                 params: filter
             }).then(function (response) {
                 deferred.resolve(response.data.result);
@@ -29,7 +29,7 @@
             var deferred = $q.defer();
             $http({
                 method: "GET",
-                url: clcw.apiService + carUrl + id
+                url: clcw.apiService + clcw.carUrl + id
             }).then(function (response) {
                 deferred.resolve(response.data.result);
             }, function (response) {
@@ -41,7 +41,7 @@
             var deferred = $q.defer();
             $http({
                 method: "POST",
-                url: clcw.apiService + carUrl,
+                url: clcw.apiService + clcw.carUrl,
                 data: car
             }).then(function (response) {
                 deferred.resolve(response.data.result);
@@ -54,7 +54,7 @@
             var deferred = $q.defer();
             $http({
                 method: "PUT",
-                url: clcw.apiService + carUrl,
+                url: clcw.apiService + clcw.carUrl,
                 data: car
             }).then(function (response) {
                 deferred.resolve(response.data.result);
@@ -68,7 +68,7 @@
 
             $http({
                 method: "DELETE",
-                url: clcw.apiService + carUrl + id
+                url: clcw.apiService + clcw.carUrl + id
             }).then(function (response) {
                 deferred.resolve(response.data.result);
             }, function (response) {

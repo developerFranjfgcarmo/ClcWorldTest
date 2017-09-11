@@ -14,7 +14,7 @@ angular.module("ClcWorldApp").factory("franchiseeServices",
             var deferred = $q.defer();
             $http({
                 method: "GET",
-                url: clcw.apiService + franchiseeUrl,
+                url: clcw.apiService + clcw.franchiseeUrl,
                 params: filter
             }).then(function (response) {
                 deferred.resolve(response.data.result);
@@ -30,7 +30,7 @@ angular.module("ClcWorldApp").factory("franchiseeServices",
             var deferred = $q.defer();
             $http({
                 method: "GET",
-                url: clcw.apiService + franchiseeUrl + id
+                url: clcw.apiService + clcw.franchiseeUrl + id
             }).then(function (response) {
                 deferred.resolve(response.data.result);
             }, function (response) {
@@ -42,7 +42,7 @@ angular.module("ClcWorldApp").factory("franchiseeServices",
             var deferred = $q.defer();
             $http({
                 method: "POST",
-                url: clcw.apiService + franchiseeUrl,
+                url: clcw.apiService + clcw.franchiseeUrl,
                 data: franchisee
             }).then(function (response) {
                 deferred.resolve(response.data.result);
@@ -55,7 +55,7 @@ angular.module("ClcWorldApp").factory("franchiseeServices",
             var deferred = $q.defer();
             $http({
                 method: "PUT",
-                url: clcw.apiService + franchiseeUrl,
+                url: clcw.apiService + clcw.franchiseeUrl,
                 data: franchisee
             }).then(function (response) {
                 deferred.resolve(response.data.result);
@@ -69,7 +69,7 @@ angular.module("ClcWorldApp").factory("franchiseeServices",
 
             $http({
                 method: "DELETE",
-                url: clcw.apiService + franchiseeUrl + id
+                url: clcw.apiService + clcw.franchiseeUrl + id
             }).then(function (response) {
                 deferred.resolve(response.data.result);
             }, function (response) {
