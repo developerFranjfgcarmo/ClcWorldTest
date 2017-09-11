@@ -8,7 +8,7 @@ namespace ClcWorld.Dtos
     /// <typeparam name="TDto">Dto</typeparam>
     public class PagedCollection<TDto>
     {
-        public List<TDto> Items { get; set; }
+        public List<TDto> Items { get;  set; }
         public int Total { get; set; }
     }
 }
