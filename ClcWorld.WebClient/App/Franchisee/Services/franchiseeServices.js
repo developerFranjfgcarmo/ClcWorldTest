@@ -1,4 +1,5 @@
-﻿angular.module("ClcWorldApp").factory("carService",
+﻿"use strict";
+angular.module("ClcWorldApp").factory("franchiseeServices",
 [
     "$http", "$q", function ($http, $q) {
         return {
@@ -13,7 +14,7 @@
             var deferred = $q.defer();
             $http({
                 method: "GET",
-                url: clcw.apiService + carUrl,
+                url: clcw.apiService + franchiseeUrl,
                 params: filter
             }).then(function (response) {
                 deferred.resolve(response.data.result);
@@ -29,7 +30,7 @@
             var deferred = $q.defer();
             $http({
                 method: "GET",
-                url: clcw.apiService + carUrl + id
+                url: clcw.apiService + franchiseeUrl + id
             }).then(function (response) {
                 deferred.resolve(response.data.result);
             }, function (response) {
@@ -37,12 +38,12 @@
             });
         }
 
-        function create(car) {
+        function create(franchisee) {
             var deferred = $q.defer();
             $http({
                 method: "POST",
-                url: clcw.apiService + carUrl,
-                data: car
+                url: clcw.apiService + franchiseeUrl,
+                data: franchisee
             }).then(function (response) {
                 deferred.resolve(response.data.result);
             }, function (response) {
@@ -50,12 +51,12 @@
             });
         }
 
-        function edit(car) {
+        function edit(franchisee) {
             var deferred = $q.defer();
             $http({
                 method: "PUT",
-                url: clcw.apiService + carUrl,
-                data: car
+                url: clcw.apiService + franchiseeUrl,
+                data: franchisee
             }).then(function (response) {
                 deferred.resolve(response.data.result);
             }, function (response) {
@@ -68,7 +69,7 @@
 
             $http({
                 method: "DELETE",
-                url: clcw.apiService + carUrl + id
+                url: clcw.apiService + franchiseeUrl + id
             }).then(function (response) {
                 deferred.resolve(response.data.result);
             }, function (response) {

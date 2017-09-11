@@ -42,7 +42,6 @@ namespace ClcWorld.WebApi.Controllers.Car
             return Ok(result);
         }
 
-        // GET: api/Car/5
         [HttpGet]
         [Route("Cars/{id:int}")]
         [ResponseType(typeof(CarDto))]
@@ -52,7 +51,6 @@ namespace ClcWorld.WebApi.Controllers.Car
             return result != null ? (IHttpActionResult) Ok(result) : NotFound();
         }
 
-        // POST: api/Car
         [HttpPost]
         [Route("Cars")]
         [ResponseType(typeof(CarDto))]
@@ -66,7 +64,6 @@ namespace ClcWorld.WebApi.Controllers.Car
             return Conflict();
         }
 
-        // PUT: api/Car/5
         [HttpPut]
         [Route("Cars")]
         [ResponseType(typeof(CarDto))]
@@ -86,7 +83,6 @@ namespace ClcWorld.WebApi.Controllers.Car
             return Content(HttpStatusCode.NoContent,car);
         }
 
-        // DELETE: api/Car/5
         [HttpDelete]
         [Route("Cars")]
         public async Task<HttpResponseMessage> Delete(int id)

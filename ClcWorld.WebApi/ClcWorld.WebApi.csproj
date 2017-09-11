@@ -192,6 +192,7 @@
     <Compile Include="Controllers\Car\CarController.cs" />
     <Compile Include="Controllers\Car\Validations\CarValidation.cs" />
     <Compile Include="Controllers\Car\ViewModels\CarViewModel.cs" />
+    <Compile Include="Controllers\Franchisee\FranchiseeController.cs" />
     <Compile Include="Controllers\Franchisee\Validations\FranchiseeValidation.cs" />
     <Compile Include="Controllers\Franchisee\ViewModels\FranchiseeViewModel.cs" />
     <Compile Include="Global.asax.cs">
