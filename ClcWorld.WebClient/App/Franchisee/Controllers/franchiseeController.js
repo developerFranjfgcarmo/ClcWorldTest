@@ -5,7 +5,7 @@ angular.module("ClcWorldApp").controller("franchiseeController", [
         vm.franchisees = [];
         vm.filter = { take: 10, page: 1, orderDirection: "ASC" };
 
-        self.attributes = [
+        vm.attributes = [
             { displayName: "Id", attribute: "id", orderable: true },
         ];
 

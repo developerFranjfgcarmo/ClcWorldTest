@@ -5,7 +5,7 @@ angular.module("ClcWorldApp").controller("carController", [
         vm.cars = [];
         vm.filter = { take: 10, page: 1, orderDirection: "ASC" };
 
-        self.attributes = [
+        vm.attributes = [
             { displayName: "Id", attribute: "id", orderable: true },
             { displayName: "Mátricula", attribute: "registration", orderable: true },
             { displayName: "Módelo", attribute: "model", orderable: true },
