@@ -16,7 +16,7 @@ namespace ClcWorld.WebApi.Controllers.MasterTables
     public class MasterTablesController : ApiController
     {
         private readonly IMasterTablesService _marterTablesService;
-        private MasterTablesController(IMasterTablesService marterTablesService)
+        public MasterTablesController(IMasterTablesService marterTablesService)
         {
             _marterTablesService = marterTablesService;
         }
@@ -35,7 +35,7 @@ namespace ClcWorld.WebApi.Controllers.MasterTables
             return Ok(result);
         }
         [HttpGet]
-        [Route("Franchisee")]
+        [Route("Franchisees")]
         [ResponseType(typeof(List<SimpleDto>))]
         public async Task<IHttpActionResult> Franchisee()
         {

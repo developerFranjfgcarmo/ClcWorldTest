@@ -56,8 +56,8 @@
   <ItemGroup>
     <Content Include="App\Car\carList.html" />
     <Content Include="App\Car\Controllers\carController.js" />
-    <Content Include="App\Car\Modals\carEdit.html" />
-    <Content Include="App\Car\Modals\carEditController.js" />
+    <Content Include="App\Car\Modals\carAddOrUpdate.html" />
+    <Content Include="App\Car\Modals\carAddOrUpdateController.js" />
     <Content Include="App\Car\Services\carService.js" />
     <Content Include="App\ClcWorldApp.js" />
     <Content Include="App\ClcWorldConfig.js" />
@@ -169,7 +169,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>9162</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

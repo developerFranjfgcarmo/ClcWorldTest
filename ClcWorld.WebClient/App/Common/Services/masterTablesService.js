@@ -1,5 +1,5 @@
 ﻿"use strict";
-angular.module("ClcWorld").factory("masterTablesService",
+angular.module("ClcWorldApp").factory("masterTablesService",
     [
         "$q", "$http", function ($q, $http) {
             return {

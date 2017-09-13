@@ -1,5 +1,4 @@
-﻿/// <reference path="../Modals/carEdit.html" />
-"use strict";
+﻿"use strict";
 angular.module("ClcWorldApp").controller("carController", [
     "$scope", "$state", "carService", "masterTablesService", "$uibModal", function ($scope, $state, carService, masterTablesService, $uibModal) {
         var vm = this;
@@ -42,12 +41,12 @@ angular.module("ClcWorldApp").controller("carController", [
 
         function addOrUpdate(carId) {
             $uibModal.open({
-                templateUrl: "App/Car/Modals/carEdit",
-                controller: "carEditController",
-                controllerAs: "carEditCtrl",
+                templateUrl: "/App/Car/Modals/carAddOrUpdate.html",
+                controller: "carAddOrUpdateController",
+                controllerAs: "carAddOrUpdateCtrl",
                 replace: true,
                 resolve: {
-                    id: function () {
+                    carId: function () {
                         return carId;
                     }
                 }
