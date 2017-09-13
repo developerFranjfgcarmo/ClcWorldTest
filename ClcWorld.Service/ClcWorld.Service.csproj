@@ -64,13 +64,16 @@
     <Compile Include="Helpers\SqlOperators.cs" />
     <Compile Include="IService\ICarService.cs" />
     <Compile Include="IService\IFranchiseeService.cs" />
+    <Compile Include="IService\IMasterTablesService.cs" />
     <Compile Include="Mapping\EntityToDtoProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\CarQuery.cs" />
     <Compile Include="Queries\FranchiseeQuery.cs" />
+    <Compile Include="Queries\MasterTablesQuery.cs" />
     <Compile Include="ServiceBase.cs" />
     <Compile Include="Services\CarService.cs" />
     <Compile Include="Services\FranchiseeService.cs" />
+    <Compile Include="Services\MasterTablesService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
