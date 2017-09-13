@@ -1,4 +1,5 @@
-﻿using ClcWorld.Service.IService;
+﻿using ClcWorld.Dtos.Models;
+using ClcWorld.Service.IService;
 using ClcWorld.Service.Services;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace ClcWorld.WebApi.Controllers.MasterTables
 {
@@ -21,6 +23,7 @@ namespace ClcWorld.WebApi.Controllers.MasterTables
 
         [HttpGet]
         [Route("CarBrand")]
+        [ResponseType(typeof(List<SimpleDto>))]
         public async Task<IHttpActionResult> CarBrand()
         {
             var result = await _marterTablesService.GetCarBrand();
@@ -33,6 +36,7 @@ namespace ClcWorld.WebApi.Controllers.MasterTables
         }
         [HttpGet]
         [Route("Franchisee")]
+        [ResponseType(typeof(List<SimpleDto>))]
         public async Task<IHttpActionResult> Franchisee()
         {
             var result = await _marterTablesService.GetFranchisee();

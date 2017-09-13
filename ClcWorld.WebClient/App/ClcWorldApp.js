@@ -1,4 +1,4 @@
-﻿angular.module("ClcWorldApp", ["ngRoute", "ui.router", "ui.bootstrap", "ngSanitize", , "ngAnimate"]);
+﻿angular.module("ClcWorldApp", ["ngRoute", "ui.router", "ui.bootstrap", "ngSanitize", "ui.bootstrap", "ngAnimate"]);
 angular.module("ClcWorldApp").config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $stateProvider.state("home",
     {

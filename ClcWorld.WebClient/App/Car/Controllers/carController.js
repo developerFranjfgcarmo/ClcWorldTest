@@ -1,6 +1,7 @@
-﻿"use strict";
+﻿/// <reference path="../Modals/carEdit.html" />
+"use strict";
 angular.module("ClcWorldApp").controller("carController", [
-    "$scope", "$state", "carService", function ($scope, $state, carService) {
+    "$scope", "$state", "carService", "masterTablesService", "$uibModal", function ($scope, $state, carService, masterTablesService, $uibModal) {
         var vm = this;
         vm.cars = [];
         vm.filter = { take: 10, page: 1, orderDirection: "ASC" };
@@ -15,8 +16,8 @@ angular.module("ClcWorldApp").controller("carController", [
         ];
 
         vm.getAll = getAll;
-       /* vm.create = create;
-        vm.edit = edit;
+        vm.addOrUpdate = addOrUpdate;
+        /*vm.edit = edit;
         vm.remove = remove;
         vm.get = get;*/
 
@@ -36,6 +37,22 @@ angular.module("ClcWorldApp").controller("carController", [
                 }
             }, function (err) {
 
+            });
+        }
+
+        function addOrUpdate(carId) {
+            $uibModal.open({
+                templateUrl: "App/Car/Modals/carEdit",
+                controller: "carEditController",
+                controllerAs: "carEditCtrl",
+                replace: true,
+                resolve: {
+                    id: function () {
+                        return carId;
+                    }
+                }
+            }).result.then(function () {
+                getAll();
             });
         }
 

@@ -7,7 +7,6 @@ angular.module("ClcWorld").factory("masterTablesService",
                 getFranchisee: getFranchisee,
             };
 
-
             function getCarBrand(filter) {
                 var deferred = $q.defer();
                 $http({
@@ -18,7 +17,6 @@ angular.module("ClcWorld").factory("masterTablesService",
                 }, function (response) {
                     deferred.reject(response.data.validationErrors);
                 });
-
                 return deferred.promise;
             }
 
@@ -32,7 +30,6 @@ angular.module("ClcWorld").factory("masterTablesService",
                 }, function (response) {
                     deferred.reject(response.data.validationErrors);
                 });
-
                 return deferred.promise;
             }
         }
