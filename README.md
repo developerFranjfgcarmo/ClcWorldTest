@@ -21,7 +21,9 @@ Contiene utilidades para poder utilizarse entre las diferente capas, como Mappin
 Este proyecto sólo contiene clases, que son las utilizadas para viajar desde la capa de servicios a la WebApi y de aquí al cliente de Angular.
 #### ClcWorld.Entities
 Este proyecto contiene el modelo de datos, se ha utilizado entity framework code first con fluent Api. 
-Todas las entidades modificadas, se almacenan en la tabla Audits. En esta tabla se almacena, la acción realizada (añadir, borrar, modificar), la entidad y la primary key del registro afectado
+Todas las entidades modificadas, se almacenan en la tabla Audits. En esta tabla se almacena, la acción realizada (añadir, borrar, modificar), la entidad y la primary key del registro afectado.
+#### ClcWorld.Service
+Contiene la lógica de negocio de la aplicaicón.
 ### Paquete Nuget:
 - **FluentValidation**. Lo utilizo para validaciones de servidor. Para automatizar las validaciones, se ha creado un Handler que procesa todas las peticiones y realiza las validaciones.
 - **AutoMapper**. Para el mapeo de dto a viewmodel y viceversa.
@@ -32,8 +34,25 @@ Todas las entidades modificadas, se almacenan en la tabla Audits. En esta tabla 
 - **Microsoft.AspNet.WebApi.Extensions.Compression.Server.** Para comprimir las respuestas.
 
 ## Frontend con Angular
-Angular.
-angular-ui-router
-ui-bootstrap.min.
-angular-animate.min
+### **Estructura:** 
+#### App  
+Los controladores y servicios se agrupan por cada funcionalidad de la aplicación:  
++-- App  
+|   +-- Car  
+    |   +-- Controller  
+    |   +-- Modal  
+    |   +-- Services  
+    |   +-- carList.html  
+|   +-- Content  
+|   +-- fonts  
+|   +-- Script  
++-- ClcWorldConfig.js  # configuración de la aplicación, se almacena la dirección de la api.  
++-- ClcWorldApp.js  # Inicio de la aplicación y configuración de los servicios y directivas.    
++-- index.html  # Página de inicio  
+
+### **Librerias:** 
+Angular  
+angular-ui-router  
+ui-bootstrap.min.  
+angular-animate.min  
 
