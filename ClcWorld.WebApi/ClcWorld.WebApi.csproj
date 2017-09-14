@@ -195,6 +195,7 @@
     <Compile Include="Controllers\Franchisee\FranchiseeController.cs" />
     <Compile Include="Controllers\Franchisee\Validations\FranchiseeValidation.cs" />
     <Compile Include="Controllers\Franchisee\ViewModels\FranchiseeViewModel.cs" />
+    <Compile Include="Controllers\MasterTables\MasterTablesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

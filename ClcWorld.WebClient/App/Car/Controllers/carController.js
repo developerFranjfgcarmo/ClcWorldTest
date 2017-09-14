@@ -1,11 +1,11 @@
 ﻿"use strict";
 angular.module("ClcWorldApp").controller("carController", [
-    "$scope", "$state", "carService", function ($scope, $state, carService) {
+    "$scope", "$state", "carService", "masterTablesService", "$uibModal", function ($scope, $state, carService, masterTablesService, $uibModal) {
         var vm = this;
         vm.cars = [];
         vm.filter = { take: 10, page: 1, orderDirection: "ASC" };
 
-        self.attributes = [
+        vm.attributes = [
             { displayName: "Id", attribute: "id", orderable: true },
             { displayName: "Mátricula", attribute: "registration", orderable: true },
             { displayName: "Módelo", attribute: "model", orderable: true },
@@ -15,8 +15,8 @@ angular.module("ClcWorldApp").controller("carController", [
         ];
 
         vm.getAll = getAll;
-       /* vm.create = create;
-        vm.edit = edit;
+        vm.addOrUpdate = addOrUpdate;
+        /*vm.edit = edit;
         vm.remove = remove;
         vm.get = get;*/
 
@@ -36,6 +36,22 @@ angular.module("ClcWorldApp").controller("carController", [
                 }
             }, function (err) {
 
+            });
+        }
+
+        function addOrUpdate(carId) {
+            $uibModal.open({
+                templateUrl: "/App/Car/Modals/carAddOrUpdate.html",
+                controller: "carAddOrUpdateController",
+                controllerAs: "carAddOrUpdateCtrl",
+                replace: true,
+                resolve: {
+                    carId: function () {
+                        return carId;
+                    }
+                }
+            }).result.then(function () {
+                getAll();
             });
         }
 

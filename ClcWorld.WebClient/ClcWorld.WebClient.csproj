@@ -56,6 +56,8 @@
   <ItemGroup>
     <Content Include="App\Car\carList.html" />
     <Content Include="App\Car\Controllers\carController.js" />
+    <Content Include="App\Car\Modals\carAddOrUpdate.html" />
+    <Content Include="App\Car\Modals\carAddOrUpdateController.js" />
     <Content Include="App\Car\Services\carService.js" />
     <Content Include="App\ClcWorldApp.js" />
     <Content Include="App\ClcWorldConfig.js" />
@@ -68,6 +70,7 @@
     <Content Include="App\Common\Directives\Forms\textareaFieldHtml.html" />
     <Content Include="App\Common\Directives\Pagination\pagination.html" />
     <Content Include="App\Common\Directives\Pagination\pagination.js" />
+    <Content Include="App\Common\Services\masterTablesService.js" />
     <Content Include="App\Franchisee\Controllers\franchiseeController.js" />
     <Content Include="App\Franchisee\Services\franchiseeServices.js" />
     <Content Include="App\Home\Controllers\homeController.js" />
@@ -153,7 +156,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\Car\Modals\" />
     <Folder Include="App\Franchisee\Modals\" />
   </ItemGroup>
   <PropertyGroup>
@@ -167,7 +169,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>9162</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

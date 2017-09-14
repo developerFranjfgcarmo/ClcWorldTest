@@ -41,6 +41,7 @@
     <Compile Include="Models\CarBrandDto.cs" />
     <Compile Include="Filters\PageFilter.cs" />
     <Compile Include="Models\FranchiseeDto.cs" />
+    <Compile Include="Models\SimpleDto.cs" />
     <Compile Include="PagedCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
